@@ -1,0 +1,659 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Latin Review</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e28b17d4-e415-4c64-9ba5-ce3b52e5b6a4" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="Latin%20Revi%20e28b1/depositphotos_367769936-stock-illustration-mascot-icon-illustration-bust-ancient.jpg.webp"/></div><h1 class="page-title">Latin Review</h1></header><div class="page-body"><ul id="3b7a2125-b155-4b41-9de2-a9e86d16303d" class="toggle"><li><details open=""><summary>Nouns</summary><ul id="0ccc7243-a461-48dd-9a2a-e74c664c5732" class="toggle"><li><details open=""><summary>Overview</summary></details></li></ul><ul id="e17aa920-fcbf-45db-8067-ddedf1bf7a97" class="toggle"><li><details open=""><summary>Endings</summary><h1 id="e40907fd-ce6a-41b2-9ee5-4ed8e404a703" class="">1st Declension</h1><table id="b16d91aa-01e9-44ac-a039-4610663d47d8" class="simple-table"><thead><tr id="862da5b3-ea03-4e37-a5c8-213ab003538b"><th id="&gt;hud" class="simple-table-header"></th><th id="lo{E" class="simple-table-header">Singular</th><th id="EcUd" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="ed00aa78-27f1-4e44-8d4e-4e47f8cfe4c4"><td id="&gt;hud">Nominative</td><td id="lo{E">-a</td><td id="EcUd">-ae</td></tr><tr id="cc512fe7-bcf3-407d-aa5e-042c3e2ded40"><td id="&gt;hud">Genitive</td><td id="lo{E">-ae</td><td id="EcUd">-arum</td></tr><tr id="69c5de02-d81e-4430-b864-840ac7507223"><td id="&gt;hud">Dative </td><td id="lo{E">-ae</td><td id="EcUd">-is</td></tr><tr id="4f1db306-870f-4df8-9084-f89777785ae6"><td id="&gt;hud">Accusative</td><td id="lo{E">-am</td><td id="EcUd">-as</td></tr><tr id="17357350-2b1b-4d29-b977-0f94aacee671"><td id="&gt;hud">Ablative</td><td id="lo{E">-ā</td><td id="EcUd">-is</td></tr></tbody></table><hr id="0d284c99-f56f-41f0-a50b-f1868e04b4bd"/><h1 id="4721f7ba-2c6a-48d8-bcd8-a2b75e841ab3" class="">2nd Declension</h1><h3 id="16b8b9e1-02ff-460c-8e31-2d855cf88cae" class="">Masculine</h3><table id="873503c4-764c-47b7-b2ac-6607662dc14f" class="simple-table"><thead><tr id="ff9ce5c2-aa1a-4c8d-a626-d3b699606dd4"><th id="&gt;hud" class="simple-table-header"></th><th id="lo{E" class="simple-table-header">Singular</th><th id="EcUd" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="f5303515-179f-417e-930c-3100fc4215a7"><td id="&gt;hud">Nominative</td><td id="lo{E">-us</td><td id="EcUd">-ī</td></tr><tr id="2e51455f-5273-4c67-8a71-5511e1262ca9"><td id="&gt;hud">Genitive</td><td id="lo{E">-ī</td><td id="EcUd">-ōrum</td></tr><tr id="a361b629-cdf3-45df-b697-5d9ec21733c6"><td id="&gt;hud">Dative </td><td id="lo{E">-ō</td><td id="EcUd">-īs</td></tr><tr id="60981aab-5551-467e-a3de-b289287a06dd"><td id="&gt;hud">Accusative</td><td id="lo{E">-um</td><td id="EcUd">-ōs</td></tr><tr id="88541dc0-df58-4396-ab02-0808137efe7f"><td id="&gt;hud">Ablative</td><td id="lo{E">-ō</td><td id="EcUd">-īs</td></tr></tbody></table><h3 id="309f9c46-490e-49f2-be30-94f68a1bce5f" class="">Nueter</h3><table id="90b1f9d9-fdfb-41d8-9a7e-86b95c34b5ba" class="simple-table"><thead><tr id="9c9e7f84-ff6f-4ff1-9a29-1607d394e853"><th id="&gt;hud" class="simple-table-header"></th><th id="lo{E" class="simple-table-header">Singular</th><th id="EcUd" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="bc8018a7-73c9-4a3c-ab8e-fddbf1d3df9e"><td id="&gt;hud">Nominative</td><td id="lo{E">-um</td><td id="EcUd">-a</td></tr><tr id="738f9bc0-44b7-4aaa-9c4f-1621ab505d92"><td id="&gt;hud">Genitive</td><td id="lo{E">-ī</td><td id="EcUd">-ōrum</td></tr><tr id="74dcdf70-f697-459a-bc72-7c2bd1225e71"><td id="&gt;hud">Dative </td><td id="lo{E">-ō</td><td id="EcUd">-īs</td></tr><tr id="0ac8fe7f-b553-4179-ad45-92c63b03beec"><td id="&gt;hud">Accusative</td><td id="lo{E">-um</td><td id="EcUd">-a</td></tr><tr id="a2da3d52-e76a-4321-a1f4-c9fc6af9593a"><td id="&gt;hud">Ablative</td><td id="lo{E">-ō</td><td id="EcUd">-īs</td></tr></tbody></table><hr id="66793529-fc82-4431-a3fd-ea3123ccee65"/><h1 id="74aa28d0-c906-4657-bce8-d034eda53b9b" class="">3rd Declension</h1><h3 id="eaf56d30-844f-4504-9f4b-119c4bf65265" class="">Male/Female</h3><table id="a3e3b6ab-9a74-4199-afa5-fcf1cec8734a" class="simple-table"><thead><tr id="90385c68-122e-4893-9c68-688a044245d7"><th id="&gt;hud" class="simple-table-header"></th><th id="lo{E" class="simple-table-header">Singular</th><th id="EcUd" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="adf2f666-64a3-4d1f-8866-f0916e70a87b"><td id="&gt;hud">Nominative</td><td id="lo{E">—</td><td id="EcUd">-is</td></tr><tr id="1c5fc057-b833-4e56-b5d4-6607fc25fa7c"><td id="&gt;hud">Genitive</td><td id="lo{E">-is</td><td id="EcUd">-um</td></tr><tr id="af49b63d-6025-4677-8148-5dbec2e17a2c"><td id="&gt;hud">Dative </td><td id="lo{E">-ī</td><td id="EcUd">-ibus</td></tr><tr id="1f077710-f65b-4103-9966-67468eacf852"><td id="&gt;hud">Accusative</td><td id="lo{E">-em</td><td id="EcUd">-ēs</td></tr><tr id="3907195c-68a9-43da-8fdc-ac7552ccfbcb"><td id="&gt;hud">Ablative</td><td id="lo{E">-e</td><td id="EcUd">-ibus</td></tr></tbody></table><h3 id="9fc4d997-6095-42f9-b251-b2b828d077cd" class="">Nueter</h3><table id="8215b14d-0ded-4f68-ad62-ac663b097f41" class="simple-table"><thead><tr id="7620738e-ac18-4943-9538-491683341d31"><th id="&gt;hud" class="simple-table-header"></th><th id="lo{E" class="simple-table-header">Singular</th><th id="EcUd" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="489e4bf2-fe8a-46c5-a704-18dd9dfcd161"><td id="&gt;hud">Nominative</td><td id="lo{E">—</td><td id="EcUd">-a</td></tr><tr id="44f63b48-e0c0-4f82-87a5-a19c1fd26503"><td id="&gt;hud">Genitive</td><td id="lo{E">-is</td><td id="EcUd">-um</td></tr><tr id="b277e946-2819-4601-8a94-409beda7f537"><td id="&gt;hud">Dative </td><td id="lo{E">-ī</td><td id="EcUd">-ibus</td></tr><tr id="fccf2401-8a96-4e60-8670-a5f3d9d4f5f0"><td id="&gt;hud">Accusative</td><td id="lo{E">—</td><td id="EcUd">-a</td></tr><tr id="8dbdaf54-6c10-4185-8319-cef6f7a6e830"><td id="&gt;hud">Ablative</td><td id="lo{E">-e</td><td id="EcUd">-ibus</td></tr></tbody></table></details></li></ul></details></li></ul><ul id="a1fad0f4-b058-42b5-a72b-899794329e83" class="toggle"><li><details open=""><summary>Verbs</summary><ul id="3b3079d0-c2a1-4dc6-8073-7d006c24fe76" class="toggle"><li><details open=""><summary>Overview</summary></details></li></ul><ul id="f3cb4125-2036-4f1b-aeae-e600358859af" class="toggle"><li><details open=""><summary>Conjugations</summary><ul id="413dff9b-8b49-4dc4-a4cf-97593739116f" class="toggle"><li><details open=""><summary>1st Conjugation</summary><ul id="4bff65df-6570-42f2-8df9-56eda144f0e8" class="toggle"><li><details open=""><summary>Active</summary><h3 id="4340a2d0-072e-4135-972d-2f4946afc2bb" class="">Present</h3><table id="7e589372-0644-4043-8e71-6dee769ed4b6" class="simple-table"><thead><tr id="8b16b31c-7843-40d1-a9f4-877409b99c7b"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="f358da47-b0bc-4e8b-a988-c312f9b1d1de"><td id="}BiI">1st Person</td><td id="BtiK">-ō</td><td id="URTI">-āmus</td></tr><tr id="0f4bc962-927b-4c1a-be7b-9ecd36c25e61"><td id="}BiI">2nd Person</td><td id="BtiK">-ás</td><td id="URTI">-ātis</td></tr><tr id="c22865a2-3306-4a09-9182-ccfbb9afe50f"><td id="}BiI">3rd Person</td><td id="BtiK">-at</td><td id="URTI">-ant</td></tr></tbody></table><h3 id="bd56e9a8-3099-4a89-810a-2ffbdb7d1fed" class="">Imperfect</h3><table id="64eff9a1-04aa-42a4-b0e3-5156109f5dd4" class="simple-table"><thead><tr id="fc7f2202-23a6-4513-aa99-e15ede257117"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="295f532f-8880-4a42-be79-2bec9ce54938"><td id="}BiI">1st Person</td><td id="BtiK">-ābam</td><td id="URTI">-ābāmus</td></tr><tr id="e5461896-c930-4704-a4b6-4ef6c2b86372"><td id="}BiI">2nd Person</td><td id="BtiK">-ābās</td><td id="URTI">-ābātis</td></tr><tr id="7bcd9203-0a0b-44be-b532-7dd417666902"><td id="}BiI">3rd Person</td><td id="BtiK">-ābat</td><td id="URTI">-ābant</td></tr></tbody></table><h3 id="f71bbf32-3c6b-45d6-adf7-fe91173083e8" class="">Future</h3><table id="be624da3-4612-4243-9344-08f6143a0afe" class="simple-table"><thead><tr id="0b1ec7db-ef07-498d-9767-5a2c23fb4e27"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="662b36cf-d75d-4114-bd60-dbb47bd5ea1c"><td id="}BiI">1st Person</td><td id="BtiK">-ābō</td><td id="URTI">-ābimus</td></tr><tr id="551326f1-85e6-4fb1-908e-36b81ad75afb"><td id="}BiI">2nd Person</td><td id="BtiK">-ābis</td><td id="URTI">-ābitis</td></tr><tr id="8a7dc3d1-06c2-4e5f-93ec-ebe7580874f0"><td id="}BiI">3rd Person</td><td id="BtiK">-ābis</td><td id="URTI">-ābunt</td></tr></tbody></table></details></li></ul><ul id="3b1346f6-2e33-4c69-8c98-9decbf6e93f0" class="toggle"><li><details open=""><summary>Perfect</summary><h3 id="4a998cc2-31e8-48ab-9a7a-ad93c3fc791d" class="">Perfect</h3><table id="004f08fd-0385-4aa3-ac57-e943c42e998c" class="simple-table"><thead><tr id="37865bcb-d9c9-429d-b5fe-332fa08ae3fb"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="8d11a2ff-ae1b-489e-a10e-c824bf178af4"><td id="}BiI">1st Person</td><td id="BtiK">-ī</td><td id="URTI">-imus</td></tr><tr id="a255c2b7-401e-49b2-b3c9-e2e994c6797e"><td id="}BiI">2nd Person</td><td id="BtiK">-istī</td><td id="URTI">-istis</td></tr><tr id="0d2631ab-d72b-4bff-a771-c793b02e1b13"><td id="}BiI">3rd Person</td><td id="BtiK">-it</td><td id="URTI">-ērunt</td></tr></tbody></table><h3 id="4a4cf550-ddb1-4dd2-a0f6-fef14ceb5e7d" class="">Pluperfect</h3><table id="0129a62f-0c8a-4383-8b21-03a2c1f7dd7c" class="simple-table"><thead><tr id="f3488cdf-06b0-4abd-b344-0dfbd26ff6f3"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="7efeee26-8b74-4c44-8ca0-ca08e02f4a1c"><td id="}BiI">1st Person</td><td id="BtiK">-eram</td><td id="URTI">-erāmus</td></tr><tr id="570fea72-3eb6-4bff-bbdd-c0f38b9d69ec"><td id="}BiI">2nd Person</td><td id="BtiK">-erās</td><td id="URTI">-erātis</td></tr><tr id="43b95004-6004-49fc-abd9-7871660200ec"><td id="}BiI">3rd Person</td><td id="BtiK">-erat</td><td id="URTI">-erant</td></tr></tbody></table><h3 id="375ef036-cda5-47ce-ad80-b6c5f971127b" class="">Future Perfect</h3><table id="afa25bb0-ffcb-4efd-aeb2-987659293fe8" class="simple-table"><thead><tr id="46c9e28d-9e8c-4d09-b9e2-240371f3e266"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="3af2fde5-6386-4480-8b7b-620c9c84363d"><td id="}BiI">1st Person</td><td id="BtiK">-erō</td><td id="URTI">-erimus</td></tr><tr id="728e7ce8-c867-4f15-98b7-8637834fe763"><td id="}BiI">2nd Person</td><td id="BtiK">-eris</td><td id="URTI">-eritis</td></tr><tr id="d9525364-b918-44a9-8a2a-40f08b8d65fc"><td id="}BiI">3rd Person</td><td id="BtiK">-erit</td><td id="URTI">-erint</td></tr></tbody></table></details></li></ul><p id="18dd2890-4f0a-449b-a051-0af63f3e75e7" class="">
+</p></details></li></ul><ul id="3cdab8e8-4762-4699-a2cb-687b3cbfb987" class="toggle"><li><details open=""><summary>2nd Conjugation</summary><ul id="e658df1a-3d4a-448f-8bd8-71ef9adfef86" class="toggle"><li><details open=""><summary>Active</summary><h3 id="c9fa7b2e-b29e-4270-9269-1fe9de4344d5" class="">Present</h3><table id="adc114fa-7c61-4161-a320-ebc129aa8a78" class="simple-table"><thead><tr id="35331ce0-b07f-49ca-8b05-5d211689316d"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="00253560-302c-4bb6-a2f3-7ed926528115"><td id="}BiI">1st Person</td><td id="BtiK">-eō</td><td id="URTI">-ēmus</td></tr><tr id="c3c90233-3ff7-408d-b775-57d566f522ee"><td id="}BiI">2nd Person</td><td id="BtiK">-ēs</td><td id="URTI">-ētis</td></tr><tr id="81a46fb9-67a2-4b8e-aa07-400bf1b69915"><td id="}BiI">3rd Person</td><td id="BtiK">-et</td><td id="URTI">-ent</td></tr></tbody></table><h3 id="9e3e5abf-e141-4848-84a3-6b8736cce7c8" class="">Imperfect</h3><table id="4a87c978-2951-44f4-9f98-f2da894ae159" class="simple-table"><thead><tr id="bc1a38d7-9c0a-428a-815a-a1ad46bbdb1b"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="5cbc8088-d812-4acd-88ad-0ba39aff7619"><td id="}BiI">1st Person</td><td id="BtiK">-ēbam</td><td id="URTI">-ēbāmus</td></tr><tr id="4fc4888f-dae7-49c2-9cc1-a553f244bf5d"><td id="}BiI">2nd Person</td><td id="BtiK">-ēbās</td><td id="URTI">-ēbātis</td></tr><tr id="480788de-9ac4-42d4-b24b-cb1c2e2f4a5a"><td id="}BiI">3rd Person</td><td id="BtiK">-ēbat</td><td id="URTI">-ēbant</td></tr></tbody></table><h3 id="8f8c1ee3-4c0d-4fe7-8356-97576d52550e" class="">Future</h3><table id="24eea89d-1442-4d99-9aa0-0162d14a9b91" class="simple-table"><thead><tr id="0d38c296-376d-41ba-bac3-b7736c21124c"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="8ec6addf-f53f-4aaa-8531-9e6025b41f36"><td id="}BiI">1st Person</td><td id="BtiK">-ēbō</td><td id="URTI">-ēbimus</td></tr><tr id="529f1399-3593-4e11-948a-e1b3a3692c74"><td id="}BiI">2nd Person</td><td id="BtiK">-ēbis</td><td id="URTI">-ēbitis</td></tr><tr id="3721d9f5-5cc0-40c2-8639-7bf7f5b24181"><td id="}BiI">3rd Person</td><td id="BtiK">-ēbit</td><td id="URTI">-ēbunt</td></tr></tbody></table></details></li></ul><ul id="e7a9e809-c872-4fb6-9768-a2c190abbcbe" class="toggle"><li><details open=""><summary>Perfect System</summary><h3 id="f028318a-07f3-49ae-9dc1-bcfcfa6d5580" class="">Perfect</h3><table id="59ed3737-36d9-4377-9e96-e4029fb188ce" class="simple-table"><thead><tr id="06b6a96e-2556-4993-93ed-95b4621185d9"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="1726fd99-812c-4f9a-a96d-a68818b45ed2"><td id="}BiI">1st Person</td><td id="BtiK">-ī</td><td id="URTI">-imus</td></tr><tr id="e968e643-00af-4afe-b49d-c5b865a56639"><td id="}BiI">2nd Person</td><td id="BtiK">-istī</td><td id="URTI">-istis</td></tr><tr id="af370235-32ae-42ba-9df0-5ebee6f823dd"><td id="}BiI">3rd Person</td><td id="BtiK">-it</td><td id="URTI">-ērunt</td></tr></tbody></table><h3 id="449fcf33-d3a0-412e-afca-a98f7b279c7a" class="">Pluperfect</h3><table id="17181a89-8aa6-44d5-bbd2-e879dff630b1" class="simple-table"><thead><tr id="159ae54f-8300-4b98-a337-a5e82de15efb"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="d5b8bb3b-e782-42e4-ab54-daf509c1253c"><td id="}BiI">1st Person</td><td id="BtiK">-eram</td><td id="URTI">-erāmus</td></tr><tr id="f9baf9b8-7638-4fbd-8aa0-363775af1fcf"><td id="}BiI">2nd Person</td><td id="BtiK">-erās</td><td id="URTI">-erātis</td></tr><tr id="34ec50b5-e246-4ee9-80d0-e6d924caef69"><td id="}BiI">3rd Person</td><td id="BtiK">-erat</td><td id="URTI">-erant</td></tr></tbody></table><h3 id="0a4b2bc5-8a7c-4981-b67e-0791e0b5f0a2" class="">Future Perfect</h3><table id="883c8587-94da-45a0-bac5-1de71df63908" class="simple-table"><thead><tr id="194102ef-854a-4a7f-abb8-f0ec1d01f718"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="26af0165-3be3-470e-a7c6-5cd252d059be"><td id="}BiI">1st Person</td><td id="BtiK">-erō</td><td id="URTI">-erimus</td></tr><tr id="d29cc0fd-997e-40fc-b7d2-b5b275c0f8e2"><td id="}BiI">2nd Person</td><td id="BtiK">-eris</td><td id="URTI">-eritis</td></tr><tr id="b970a09a-6f7f-4411-b091-51d086e5a0bb"><td id="}BiI">3rd Person</td><td id="BtiK">-erit</td><td id="URTI">-erint</td></tr></tbody></table></details></li></ul></details></li></ul><ul id="824e339b-33e5-4bf5-8cca-7dce55841115" class="toggle"><li><details open=""><summary>3rd Conjugation</summary><ul id="3faeccf9-39a3-4695-ad46-6d81d6c9c290" class="toggle"><li><details open=""><summary>Active</summary><h3 id="8fc26e01-54d4-4ed2-8308-5c86ff9db617" class="">Present</h3><table id="493fb74f-6023-4361-9114-dd5ed5edfd33" class="simple-table"><thead><tr id="8c4bd5a2-7757-4a50-9f0c-6a1f7cc10081"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="75f4ba6b-4e47-4fef-858d-f52ce79704fe"><td id="}BiI">1st Person</td><td id="BtiK">-ō</td><td id="URTI">-imus</td></tr><tr id="435931f2-7e2c-4abf-8a22-e5c34d57cfa2"><td id="}BiI">2nd Person</td><td id="BtiK">-is</td><td id="URTI">-itis</td></tr><tr id="5bc245f8-7a85-457e-be35-c37f26711afc"><td id="}BiI">3rd Person</td><td id="BtiK">-it</td><td id="URTI">-unt</td></tr></tbody></table><h3 id="b221fbd4-fbb2-49fe-9ca1-8b7c9ef01611" class="">Imperfect</h3><table id="78a376fd-79f1-4a8c-bf02-4407346a26b3" class="simple-table"><thead><tr id="67bbb0b1-cb9d-4519-90b0-2f76084bff92"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="277de4c3-13e1-4d91-a0fc-20b63e494113"><td id="}BiI">1st Person</td><td id="BtiK">-ēbam</td><td id="URTI">-ēbāmus</td></tr><tr id="3e2e04d0-1652-4640-a9cf-220b618a69b8"><td id="}BiI">2nd Person</td><td id="BtiK">-ēbās</td><td id="URTI">-ēbātis</td></tr><tr id="3c1d2e81-ceb7-474e-82e7-bf19b519198e"><td id="}BiI">3rd Person</td><td id="BtiK">-ēbat</td><td id="URTI">-ēbant</td></tr></tbody></table><h3 id="0464df72-1b20-45a9-9936-8d53b5c07315" class="">Future</h3><table id="469da21b-5dca-4a24-b171-65331fd4eb3f" class="simple-table"><thead><tr id="467dca3c-66e8-4ae6-9ad8-f342f4407630"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="4345742f-8592-4a70-a254-1689f871e91a"><td id="}BiI">1st Person</td><td id="BtiK">-am</td><td id="URTI">-emus</td></tr><tr id="ca57f395-41b0-44b3-bd18-6b7a8e9e6e6f"><td id="}BiI">2nd Person</td><td id="BtiK">-es</td><td id="URTI">-ētis</td></tr><tr id="7597a3c8-45fa-464e-8122-d095f65293ea"><td id="}BiI">3rd Person</td><td id="BtiK">-et</td><td id="URTI">-ent</td></tr></tbody></table></details></li></ul><ul id="2953c5b7-3679-4b2f-9f60-e351039a56b3" class="toggle"><li><details open=""><summary>Perfect System</summary><h3 id="e222be55-da57-4559-a144-973c36cd2e4e" class="">Perfect</h3><table id="2e24350e-984c-4770-8cfa-9d1726393765" class="simple-table"><thead><tr id="fb897a04-d699-417e-8542-58b395f2afd3"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="d75056d9-b946-4a36-b7e9-6624e3707b31"><td id="}BiI">1st Person</td><td id="BtiK">-ī</td><td id="URTI">-imus</td></tr><tr id="e5ecc2f1-28c3-4536-a32c-ac2df59d3040"><td id="}BiI">2nd Person</td><td id="BtiK">-istī</td><td id="URTI">-istis</td></tr><tr id="7b970c31-af06-4075-9b28-9630547acd6c"><td id="}BiI">3rd Person</td><td id="BtiK">-it</td><td id="URTI">-ērunt</td></tr></tbody></table><h3 id="2883ac8a-7e92-4421-88ea-97df0596ce8b" class="">Pluperfect</h3><table id="d5de62b8-efc4-4e75-be30-ddc898492766" class="simple-table"><thead><tr id="3d0faaac-43e8-4877-92d5-8efd3d6e7ea7"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="2d4fc8f1-b5de-47ce-8a67-4231643c05a3"><td id="}BiI">1st Person</td><td id="BtiK">-eram</td><td id="URTI">-erāmus</td></tr><tr id="30cc433e-616f-4d4b-9a19-0e5a2a7d6461"><td id="}BiI">2nd Person</td><td id="BtiK">-erās</td><td id="URTI">-erātis</td></tr><tr id="5da1e529-eed3-41a8-bb89-63f76a742fde"><td id="}BiI">3rd Person</td><td id="BtiK">-erat</td><td id="URTI">-erant</td></tr></tbody></table><h3 id="9181a66e-0959-434c-bb4d-b50af7829a82" class="">Future Perfect</h3><table id="d13d7d01-980d-40f5-8b7e-470d4298175b" class="simple-table"><thead><tr id="c7857fe4-f649-46d0-8c8a-e4eb323a5c52"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="03b9465f-e4d5-468c-a55c-fdaf37687d62"><td id="}BiI">1st Person</td><td id="BtiK">-erō</td><td id="URTI">-erimus</td></tr><tr id="798b29b8-fc2f-4156-acbb-8aefd941d846"><td id="}BiI">2nd Person</td><td id="BtiK">-eris</td><td id="URTI">-eritis</td></tr><tr id="558f3a25-c135-4066-9cf2-05e0fb053649"><td id="}BiI">3rd Person</td><td id="BtiK">-erit</td><td id="URTI">-erint</td></tr></tbody></table></details></li></ul></details></li></ul><ul id="99b4af84-abef-4d17-97de-caa6d497acba" class="toggle"><li><details open=""><summary>4th Conjugation</summary><ul id="28f8e1cc-ec90-42ee-9d3e-6d4f0a919efa" class="toggle"><li><details open=""><summary>Active</summary><h3 id="9df716c0-a886-4f73-9b66-20bbf3f2a5b6" class="">Present</h3><table id="542c32db-21ff-41cc-962e-1eb8fa1a68b7" class="simple-table"><thead><tr id="1ed086be-9f11-4ec9-a3b3-5563d857d8aa"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="e53d186d-fbc9-4ea8-8f26-ba01acf911aa"><td id="}BiI">1st Person</td><td id="BtiK">-io</td><td id="URTI">-īmus</td></tr><tr id="dbe6ca77-99fb-4a76-b9cc-e9d0a6e0c7d0"><td id="}BiI">2nd Person</td><td id="BtiK">-īs</td><td id="URTI">-ītis</td></tr><tr id="63a2852f-0ef2-4d44-8071-51203ff75868"><td id="}BiI">3rd Person</td><td id="BtiK">-it</td><td id="URTI">-iunt</td></tr></tbody></table><h3 id="a7c01fe6-9b3e-44eb-b2eb-338f69ecd3f8" class="">Imperfect</h3><table id="b47c0387-6d50-46d9-8abf-2a97814308a2" class="simple-table"><thead><tr id="54d59ff9-e8a7-4644-97fa-6ba665ca1826"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="c6eaa6a8-e626-441e-ab0c-458ced958153"><td id="}BiI">1st Person</td><td id="BtiK">-iēbam</td><td id="URTI">-iēbāmus</td></tr><tr id="85c1326b-1256-4a6c-aa77-bb5296150bc5"><td id="}BiI">2nd Person</td><td id="BtiK">-iēbās</td><td id="URTI">-iēbātis</td></tr><tr id="9393281e-0f08-42d1-a54e-e7beac8a7a9a"><td id="}BiI">3rd Person</td><td id="BtiK">-iēbat</td><td id="URTI">-iēbant</td></tr></tbody></table><h3 id="d8d4c917-6988-415a-9168-a9f9c7a6469d" class="">Future</h3><table id="581c647e-38e6-4feb-8599-60135b5911b5" class="simple-table"><thead><tr id="a2209f26-a9f4-46e0-8d96-3d73aeed74bf"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="0a3a7ed3-8d7a-4258-9b28-d200cbda8289"><td id="}BiI">1st Person</td><td id="BtiK">-iam</td><td id="URTI">-iēmus</td></tr><tr id="b693fb33-4f36-4c83-b13a-f729b9f5cf6c"><td id="}BiI">2nd Person</td><td id="BtiK">-iēs</td><td id="URTI">-iētis</td></tr><tr id="55c9f344-e619-4a44-8eb6-478c32eeaf00"><td id="}BiI">3rd Person</td><td id="BtiK">-iet</td><td id="URTI">-ient</td></tr></tbody></table></details></li></ul><ul id="6983336b-eba1-41c3-8770-51ae34810d7c" class="toggle"><li><details open=""><summary>Perfect System</summary><h3 id="c05ef77b-0a36-417b-b238-ad0afca27f6d" class="">Perfect</h3><table id="cc8bc05b-85ee-44a8-a6f2-531242066043" class="simple-table"><thead><tr id="094f213b-e42f-4162-b705-bebce08d04ae"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="ef5ace8a-ff05-485b-a853-3fac0b9dcc7a"><td id="}BiI">1st Person</td><td id="BtiK">-ī</td><td id="URTI">-imus</td></tr><tr id="a08db593-b744-40b3-8c7a-63814743abb1"><td id="}BiI">2nd Person</td><td id="BtiK">-istī</td><td id="URTI">-istis</td></tr><tr id="c0b2d311-0b44-48b6-9caf-027420ab4155"><td id="}BiI">3rd Person</td><td id="BtiK">-it</td><td id="URTI">-ērunt</td></tr></tbody></table><h3 id="71d653be-be62-413a-ba4e-bbd83c4a20de" class="">Pluperfect</h3><table id="f7943099-9039-4f19-bf16-1d58da7de07e" class="simple-table"><thead><tr id="add15cba-6679-4313-b7f8-a27e5251203e"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="7047355e-12de-49a0-80d4-33c906bf6ec2"><td id="}BiI">1st Person</td><td id="BtiK">-eram</td><td id="URTI">-erāmus</td></tr><tr id="6c5f11ec-8c09-4eab-982f-d6c3a1049a3b"><td id="}BiI">2nd Person</td><td id="BtiK">-erās</td><td id="URTI">-erātis</td></tr><tr id="e71130a5-2be0-4e03-8766-89877df1b30a"><td id="}BiI">3rd Person</td><td id="BtiK">-erat</td><td id="URTI">-erant</td></tr></tbody></table><h3 id="e519788b-5e96-43a6-9460-f96d95509081" class="">Future Perfect</h3><table id="2e24aee4-f3c6-42e7-8533-6c15aa6040ea" class="simple-table"><thead><tr id="e2c8225e-ed76-452e-96e0-35d13004be99"><th id="}BiI" class="simple-table-header"></th><th id="BtiK" class="simple-table-header">Singular</th><th id="URTI" class="simple-table-header">Plural</th></tr></thead><tbody><tr id="ff794ed8-485f-469a-a8eb-918d2a8aece1"><td id="}BiI">1st Person</td><td id="BtiK">-erō</td><td id="URTI">-erimus</td></tr><tr id="df400d2d-6c00-4c51-887f-9025518dd39c"><td id="}BiI">2nd Person</td><td id="BtiK">-eris</td><td id="URTI">-eritis</td></tr><tr id="1e1a2ecd-248c-49a4-b50d-70815bcf2a63"><td id="}BiI">3rd Person</td><td id="BtiK">-erit</td><td id="URTI">-erint</td></tr></tbody></table></details></li></ul></details></li></ul><ul id="c7d83f3b-9c3c-4f4d-9288-3fa9fdd16518" class="toggle"><li><details open=""><summary>Irregulars</summary><ul id="7dd3e7d9-1186-4413-a051-b6ce82b0c1a3" class="toggle"><li><details open=""><summary>Sum, Esse, Fui, Futurus</summary></details></li></ul><ul id="9b66eb43-e5c6-4d68-af5d-6db187d957d2" class="toggle"><li><details open=""><summary>Possum, Posse, Potui</summary></details></li></ul></details></li></ul></details></li></ul></details></li></ul><ul id="9d0b940a-3d5d-4f5d-a60c-7738496af116" class="toggle"><li><details open=""><summary>Demonstratives</summary><h3 id="f48487ef-9d50-4e0f-9791-98f62904e44c" class="">Hīc, Haec, Hōc —&gt; This</h3><table id="d39ef257-f9ce-4846-83b5-a1b4d3447f16" class="simple-table"><thead><tr id="5a517f86-e98a-406f-8601-1091fcb757e4"><th id="}RQF" class="simple-table-header"></th><th id="fFlz" class="simple-table-header">Masculine</th><th id="x@Xs" class="simple-table-header">Feminine</th><th id="F?MQ" class="simple-table-header">Nueter</th></tr></thead><tbody><tr id="9b327c3a-7db2-49e5-8bde-d4919a03131f"><td id="}RQF">Nom. Sing.</td><td id="fFlz">hīc</td><td id="x@Xs">haec</td><td id="F?MQ">hōc</td></tr><tr id="834d1f73-9076-436a-a420-505eb4115ec8"><td id="}RQF">Gen. Sing.</td><td id="fFlz">hûius</td><td id="x@Xs">hûius</td><td id="F?MQ">hûius</td></tr><tr id="49d6fea8-6f8c-4ce5-9093-7de56f867e8d"><td id="}RQF">Dat. Sing.</td><td id="fFlz">huic</td><td id="x@Xs">huic</td><td id="F?MQ">huic</td></tr><tr id="6cc511c6-131c-4e73-b752-e44c9973d45a"><td id="}RQF">Acc. Sing</td><td id="fFlz">hunc</td><td id="x@Xs">hanc</td><td id="F?MQ">hōc</td></tr><tr id="35fcc407-3419-4c50-b23b-3b7c5306e0ca"><td id="}RQF">Abl. Sing.</td><td id="fFlz">hōc</td><td id="x@Xs">hāc</td><td id="F?MQ">hōc</td></tr><tr id="485a92eb-f2c1-4631-baf3-d83e5c97ff78"><td id="}RQF">Nom. Pl.</td><td id="fFlz"><mark class="highlight-blue">hī</mark></td><td id="x@Xs"><mark class="highlight-blue">hae</mark></td><td id="F?MQ"><mark class="highlight-blue">haec</mark></td></tr><tr id="cbf41ccf-68f7-4c60-897e-67611f8e9762"><td id="}RQF">Gen. Pl.</td><td id="fFlz"><mark class="highlight-blue">hōrum</mark></td><td id="x@Xs"><mark class="highlight-blue">hārum</mark></td><td id="F?MQ"><mark class="highlight-blue">hōrum</mark></td></tr><tr id="d792eb79-9064-4dde-8363-cd1d26c71ed1"><td id="}RQF">Dat. Pl.</td><td id="fFlz"><mark class="highlight-blue">hīs</mark></td><td id="x@Xs"><mark class="highlight-blue">hīs</mark></td><td id="F?MQ"><mark class="highlight-blue">hīs</mark></td></tr><tr id="814f4408-082a-4d08-ac95-95ad9e9a489e"><td id="}RQF">Acc. Pl.</td><td id="fFlz"><mark class="highlight-blue">hōs</mark></td><td id="x@Xs"><mark class="highlight-blue">hās</mark></td><td id="F?MQ"><mark class="highlight-blue">haec</mark></td></tr><tr id="7963cbe1-7c1e-40e2-8adf-e007ae4a8a3f"><td id="}RQF">Abl. Pl.</td><td id="fFlz"><mark class="highlight-blue">hīs</mark></td><td id="x@Xs"><mark class="highlight-blue">hīs</mark></td><td id="F?MQ"><mark class="highlight-blue">hīs</mark></td></tr></tbody></table><hr id="32d8058c-edbb-46db-af42-caaab89e668e"/><h3 id="4ad51d7c-8cb9-4481-8619-13597354deaa" class="">Ille, Illa, Illud —&gt; That</h3><table id="4942d6c7-b164-43b0-a255-af45334eebf1" class="simple-table"><thead><tr id="0857e3e8-7d83-4e52-98be-5911b78d2ffd"><th id="}RQF" class="simple-table-header"></th><th id="fFlz" class="simple-table-header">Masculine</th><th id="x@Xs" class="simple-table-header">Feminine</th><th id="F?MQ" class="simple-table-header">Nueter</th></tr></thead><tbody><tr id="07aed833-83ab-4218-aa79-19c858eaefd3"><td id="}RQF">Nom. Sing.</td><td id="fFlz">ille</td><td id="x@Xs">illa</td><td id="F?MQ">illud</td></tr><tr id="1ff0e0c1-cdbc-4158-8e07-e500e6402267"><td id="}RQF">Gen. Sing.</td><td id="fFlz">illīus</td><td id="x@Xs">illīus</td><td id="F?MQ">illīus</td></tr><tr id="8ca7fcca-5dc9-40d2-a557-7f1cc6fbfc6e"><td id="}RQF">Dat. Sing.</td><td id="fFlz">illī</td><td id="x@Xs">illī</td><td id="F?MQ">illī</td></tr><tr id="5ec9f91c-6da2-4926-a5f5-d05dc9a6ad03"><td id="}RQF">Acc. Sing</td><td id="fFlz">illum</td><td id="x@Xs">illam</td><td id="F?MQ">illud</td></tr><tr id="255c299b-456d-40b2-9952-173707840493"><td id="}RQF">Abl. Sing.</td><td id="fFlz">illō</td><td id="x@Xs">illā</td><td id="F?MQ">illō</td></tr><tr id="165a82f0-ff33-47b0-931f-33c5f026d3de"><td id="}RQF">Nom. Pl.</td><td id="fFlz"><mark class="highlight-blue">illī</mark></td><td id="x@Xs"><mark class="highlight-blue">illae</mark></td><td id="F?MQ"><mark class="highlight-blue">illa</mark></td></tr><tr id="cdc3a4bc-21c1-4b6a-800d-bc4b04c747cb"><td id="}RQF">Gen. Pl.</td><td id="fFlz"><mark class="highlight-blue">illōrum</mark></td><td id="x@Xs"><mark class="highlight-blue">illārum</mark></td><td id="F?MQ"><mark class="highlight-blue">illārum</mark></td></tr><tr id="aa5de87c-abc9-4a71-a33e-a60062872170"><td id="}RQF">Dat. Pl.</td><td id="fFlz"><mark class="highlight-blue">illīs</mark></td><td id="x@Xs"><mark class="highlight-blue">illīs</mark></td><td id="F?MQ"><mark class="highlight-blue">illīs</mark></td></tr><tr id="f9fa1141-2005-4a30-b523-f9e8cd67323f"><td id="}RQF">Acc. Pl.</td><td id="fFlz"><mark class="highlight-blue">illōs</mark></td><td id="x@Xs"><mark class="highlight-blue">illās</mark></td><td id="F?MQ"><mark class="highlight-blue">illa</mark></td></tr><tr id="9f3a3ca8-cc94-4ac3-9a56-1fc09e019147"><td id="}RQF">Abl. Pl.</td><td id="fFlz"><mark class="highlight-blue">illīs</mark></td><td id="x@Xs"><mark class="highlight-blue">illīs</mark></td><td id="F?MQ"><mark class="highlight-blue">illīs</mark></td></tr></tbody></table><hr id="36acb0f6-fb4e-451a-94b0-dd109daf7584"/><h3 id="974e8a76-624b-4e18-9ed0-8d6bfa764525" class="">iste, ista, istud—&gt; That (near)</h3><table id="302122f3-8001-48a9-a58f-8eaf975f10b7" class="simple-table"><thead><tr id="ddb92bf0-4520-4bd1-87f6-ef070280e63d"><th id="}RQF" class="simple-table-header"></th><th id="fFlz" class="simple-table-header">Masculine</th><th id="x@Xs" class="simple-table-header">Feminine</th><th id="F?MQ" class="simple-table-header">Nueter</th></tr></thead><tbody><tr id="1cd63c75-211a-431c-8a1f-1969732b0c75"><td id="}RQF">Nom. Sing.</td><td id="fFlz">iste</td><td id="x@Xs">ista</td><td id="F?MQ">istud</td></tr><tr id="80f20990-b22d-4053-93ca-f2d30cec33b6"><td id="}RQF">Gen. Sing.</td><td id="fFlz">istīus</td><td id="x@Xs">istīus</td><td id="F?MQ">istīus</td></tr><tr id="6cfba3e9-b53a-49a7-a55e-88a27286ac39"><td id="}RQF">Dat. Sing.</td><td id="fFlz">istī</td><td id="x@Xs">istī</td><td id="F?MQ">istī</td></tr><tr id="ac737f7e-4ad3-4dad-9ee3-3d8d953c7deb"><td id="}RQF">Acc. Sing</td><td id="fFlz">istum</td><td id="x@Xs">istam</td><td id="F?MQ">istud</td></tr><tr id="d46d1e09-ccad-4257-9e42-ac8d987e81ca"><td id="}RQF">Abl. Sing.</td><td id="fFlz">istō</td><td id="x@Xs">istā</td><td id="F?MQ">istō</td></tr><tr id="7a0edee2-1c77-4673-8051-ae041abe5f70"><td id="}RQF">Nom. Pl.</td><td id="fFlz"><mark class="highlight-blue">istī</mark></td><td id="x@Xs"><mark class="highlight-blue">istae</mark></td><td id="F?MQ"><mark class="highlight-blue">ista</mark></td></tr><tr id="f399ab0c-c0a3-4fd7-8dc8-dfa0bb76da04"><td id="}RQF">Gen. Pl.</td><td id="fFlz"><mark class="highlight-blue">istōrum</mark></td><td id="x@Xs"><mark class="highlight-blue">istārum</mark></td><td id="F?MQ"><mark class="highlight-blue">hōrum</mark></td></tr><tr id="38d96388-ab08-4906-a2a7-04b7da92c921"><td id="}RQF">Dat. Pl.</td><td id="fFlz"><mark class="highlight-blue">istīs</mark></td><td id="x@Xs"><mark class="highlight-blue">istīs</mark></td><td id="F?MQ"><mark class="highlight-blue">istīs</mark></td></tr><tr id="4a1773a9-18b3-449b-a491-f8181af0c4a3"><td id="}RQF">Acc. Pl.</td><td id="fFlz"><mark class="highlight-blue">istōs</mark></td><td id="x@Xs"><mark class="highlight-blue">istās</mark></td><td id="F?MQ"><mark class="highlight-blue">ista</mark></td></tr><tr id="05a7fca5-2fde-4a6e-b319-1d2c076a05be"><td id="}RQF">Abl. Pl.</td><td id="fFlz"><mark class="highlight-blue">istīs</mark></td><td id="x@Xs"><mark class="highlight-blue">istīs</mark></td><td id="F?MQ"><mark class="highlight-blue">istīs</mark></td></tr></tbody></table></details></li></ul><ul id="98d5cb4a-606c-4a3f-a6fd-4622f47a5d82" class="toggle"><li><details open=""><summary>Personal Pronouns</summary></details></li></ul><ul id="d94c5a05-a308-47c7-ad72-75ed82cb18c3" class="toggle"><li><details open=""><summary>Reflexive Pronouns</summary></details></li></ul><p id="000b85a2-09c2-439e-8d4d-c2343a060d72" class="">
+</p></div></article></body></html>
